@@ -114,22 +114,6 @@ button { font: inherit; }
 }
 .hero-lead { margin-top: 20px; font-size: 1.2rem; max-width: 40ch; color: #d7dce2; }
 
-/* Smaltovaná cedule se jménem – jako tabulka u vjezdu do dílny */
-.plate-sign {
-  position: relative; display: inline-flex; flex-direction: column;
-  padding: 16px 30px 14px; margin-bottom: 26px;
-  background: #f1f3f5; color: var(--graphite);
-  border: 3px solid var(--graphite); outline: 2px solid #f1f3f5; outline-offset: 0;
-  box-shadow: 0 0 0 5px var(--graphite-3);
-  border-radius: 2px;
-}
-.screw { position: absolute; width: 9px; height: 9px; border-radius: 50%; background: #9aa3ae; box-shadow: inset 0 0 0 1.5px #6f7883; }
-.screw::after { content: ""; position: absolute; left: 1.5px; right: 1.5px; top: 3.5px; height: 1.5px; background: #5b636e; transform: rotate(-35deg); }
-.screw:nth-child(1) { top: 6px; left: 7px; } .screw:nth-child(2) { top: 6px; right: 7px; }
-.screw:nth-child(3) { bottom: 6px; left: 7px; } .screw:nth-child(4) { bottom: 6px; right: 7px; }
-.ps-kicker { font: 700 .95rem/1 var(--body); color: var(--steel-dark); letter-spacing: .14em; text-transform: uppercase; }
-.ps-name { font: 900 clamp(1.9rem, 7vw, 2.6rem)/1 var(--head); font-stretch: 68%; margin-top: 4px; white-space: nowrap; }
-.ps-addr { font: 600 1rem/1.2 var(--body); color: var(--muted); margin-top: 6px; padding-top: 6px; border-top: 2px solid var(--graphite); }
 
 /* Cedule s telefonem = hlavní tlačítko */
 .sign {
@@ -157,19 +141,11 @@ button { font: inherit; }
 .rating-num { font: 900 3.4rem/1 var(--head); font-stretch: 70%; }
 .stars { display: block; width: 120px; color: var(--steel); margin-bottom: 4px; }
 .stars svg { width: 120px; height: 22px; }
+.rating-alt { font-size: 1rem; color: var(--muted); margin-top: 2px; }
 .board-title { font: 700 1rem/1.2 var(--body); color: var(--muted); }
 .hours-main { font: 800 1.75rem/1.15 var(--head); font-stretch: 80%; margin-top: 4px; }
 .hours-sub { color: var(--muted); }
 
-.timeline { margin-top: 14px; }
-.tl-track { position: relative; height: 16px; background: repeating-linear-gradient(90deg, #dfe3e8 0 1px, transparent 1px calc(100% / 12)); border: 1px solid var(--line); }
-.tl-open { position: absolute; top: 0; bottom: 0; left: calc(2 / 12 * 100%); width: calc(8 / 12 * 100%); background: var(--steel); }
-.timeline.is-closed-day .tl-open { background: transparent; border: 2px dashed #8a929c; }
-.tl-now { position: absolute; top: -6px; bottom: -6px; width: 3px; margin-left: -1.5px; background: var(--graphite); }
-.tl-now span { position: absolute; top: -4px; left: 50%; width: 9px; height: 9px; margin-left: -4.5px; background: var(--graphite); transform: rotate(45deg); }
-.tl-now[hidden] { display: none; }
-.tl-scale { display: flex; justify-content: space-between; margin-top: 4px; font-size: .9rem; color: var(--muted); font-variant-numeric: tabular-nums; }
-.tl-scale span { width: 0; display: flex; justify-content: center; }
 
 .status { margin-top: 12px; font-weight: 700; display: flex; align-items: center; gap: 8px; }
 .status::before { content: ""; width: 10px; height: 10px; border-radius: 50%; background: currentColor; flex: none; }
@@ -177,11 +153,6 @@ button { font: inherit; }
 .status.is-closed { color: var(--muted); }
 .status:empty { display: none; }
 
-.season { text-decoration: none; color: var(--graphite); background: #e4ebf3; }
-.season:hover { background: #d6e1ee; color: var(--graphite); }
-.season b { display: block; font: 800 1.2rem/1.2 var(--head); font-stretch: 85%; }
-.season small { display: block; color: var(--muted); font-size: 1rem; }
-.season span { font-weight: 700; color: var(--steel-dark); text-decoration: underline; text-underline-offset: 3px; }
 
 /* ---------- Sekce obecně ---------- */
 section { padding: 72px 0; }
@@ -189,18 +160,6 @@ section { padding: 72px 0; }
 .section-lead { margin-top: 12px; max-width: 54ch; color: var(--muted); }
 
 /* ---------- Služby ---------- */
-.symptoms { margin-top: 30px; display: flex; flex-wrap: wrap; gap: 10px; }
-.symptom {
-  min-height: 48px; padding: 10px 16px; text-align: left;
-  background: #fff; color: var(--graphite);
-  border: 2px solid var(--line); border-radius: var(--radius);
-  font-weight: 600; cursor: pointer;
-  transition: border-color .12s ease, background-color .12s ease;
-}
-.symptom:hover { border-color: var(--steel); }
-.symptom[aria-pressed="true"] { background: var(--graphite); border-color: var(--graphite); color: #fff; }
-.symptom-out { margin-top: 16px; font-weight: 600; }
-.symptom-out a { font-weight: 700; }
 
 .service-list { margin-top: 30px; display: grid; gap: 16px; }
 .service {
@@ -213,7 +172,6 @@ section { padding: 72px 0; }
 }
 .service.is-hit { border-color: var(--graphite); border-top-color: var(--graphite); box-shadow: 0 0 0 2px var(--graphite); }
 .service-ico { width: 48px; height: 48px; color: var(--steel); }
-.service-no { position: absolute; top: 18px; right: 20px; font: 900 2.4rem/1 var(--head); font-stretch: 65%; color: #6f7883; }
 .service h3 { font-size: 1.75rem; font-weight: 850; font-stretch: 78%; margin-top: 14px; }
 .service ul { margin: 12px 0 0; padding: 0; list-style: none; }
 .service li { border-top: 1px dashed var(--line); }
@@ -226,19 +184,6 @@ section { padding: 72px 0; }
 .service li a:hover::after { text-decoration: underline; }
 .price-note { margin-top: 24px; max-width: 60ch; }
 
-/* ---------- Majitel ---------- */
-.owner { background: var(--bg); padding-top: 24px; }
-.owner-grid { display: grid; gap: 28px; align-items: center; }
-.owner-grid::before { content: ""; grid-column: 1 / -1; height: 3px; background: var(--graphite); margin-bottom: 12px; }
-.owner-name { display: flex; flex-direction: column; font: 900 clamp(3.6rem, 16vw, 8.5rem)/.86 var(--head); font-stretch: 62%; color: var(--graphite); letter-spacing: -.01em; }
-.owner-name span:last-child { color: var(--steel); }
-.owner-lead { margin-top: 14px; font-size: 1.25rem; max-width: 40ch; }
-.owner-facts { margin: 26px 0 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid var(--line); }
-.owner-facts > div { padding: 14px 12px 0 0; }
-.owner-facts dt { font-size: 1rem; color: var(--muted); }
-.owner-facts dd { margin: 2px 0 0; font: 800 1.35rem/1.15 var(--head); font-stretch: 78%; }
-.owner-facts dd a { color: var(--graphite); }
-.owner-facts small { display: block; font: 600 1rem var(--body); color: var(--muted); }
 
 /* ---------- STK hlídač ---------- */
 .stk { background: var(--paper); border-block: 1px solid var(--line); }
@@ -331,8 +276,6 @@ section { padding: 72px 0; }
 
 /* SPZ jako česká značka */
 .plate { display: flex; align-items: stretch; max-width: 300px; border: 2px solid var(--graphite); border-radius: 6px; background: #fff; overflow: hidden; }
-.plate-eu { flex: none; width: 40px; background: #1d4f9c; color: #fff; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; font: 700 .875rem/1 var(--body); padding: 6px 0 8px; }
-.plate-stars { color: #ffd23f; font-size: .8rem; margin-bottom: auto; }
 .field .plate input { border: 0; border-radius: 0; min-height: 56px; font: 800 1.6rem/1 var(--head); font-stretch: 75%; letter-spacing: .08em; text-transform: uppercase; }
 .field .plate input::placeholder { color: #6b7280; }
 .field .plate input:focus { box-shadow: none; }
@@ -439,7 +382,6 @@ section { padding: 72px 0; }
   .field-spz { grid-column: 1 / -1; }
   .contact-grid { grid-template-columns: 1fr 1fr; }
   .stk-grid { grid-template-columns: 1.2fr 1fr; }
-  .owner-grid { grid-template-columns: 1fr 1.1fr; gap: 48px; }
   .call-bar { display: none; }
   .site-footer { padding-bottom: 26px; }
 }
@@ -461,8 +403,6 @@ section { padding: 72px 0; }
 @media (prefers-reduced-motion: no-preference) {
   .reveal { opacity: 0; transform: translateY(14px); transition: opacity .5s ease, transform .5s ease; }
   .reveal.is-in { opacity: 1; transform: none; }
-  .tl-now { animation: tl-in .8s ease both .3s; }
-  @keyframes tl-in { from { opacity: 0; } to { opacity: 1; } }
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }

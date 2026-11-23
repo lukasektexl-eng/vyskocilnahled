@@ -3,8 +3,7 @@
   'use strict';
 
   var OPEN_H = 8, CLOSE_H = 16; // OVĚŘIT S MAJITELEM – Po–Pá 8:00–16:00 (Google Maps)
-  var TL_FROM = 6, TL_TO = 18;
-  var DAY_NAMES = ['neděle', 'pondělí', 'úterý', 'středa', 'čtvrtek', 'pátek', 'sobota'];
+    var DAY_NAMES = ['neděle', 'pondělí', 'úterý', 'středa', 'čtvrtek', 'pátek', 'sobota'];
   var DAY_SHORT = ['Ne', 'Po', 'Út', 'St', 'Čt', 'Pá', 'So'];
   var MONTHS_GEN = ['ledna', 'února', 'března', 'dubna', 'května', 'června', 'července', 'srpna', 'září', 'října', 'listopadu', 'prosince'];
   var MONTHS_NOM = ['leden', 'únor', 'březen', 'duben', 'květen', 'červen', 'červenec', 'srpen', 'září', 'říjen', 'listopad', 'prosinec'];
@@ -40,27 +39,8 @@
     status.textContent = txt;
     status.classList.add(openNow ? 'is-open' : 'is-closed');
   }
-  var tl = document.querySelector('[data-timeline]');
-  if (tl) {
-    if (!isWeekday(now.dow)) tl.classList.add('is-closed-day');
-    var marker = tl.querySelector('.tl-now');
-    var pos = (nowMin / 60 - TL_FROM) / (TL_TO - TL_FROM);
-    if (pos < 0 || pos > 1) marker.hidden = true; else marker.style.left = (pos * 100).toFixed(2) + '%';
-  }
   var todayRow = document.querySelector('.hours tr[data-day="' + now.dow + '"]');
   if (todayRow) todayRow.classList.add('is-today');
-
-  /* ---- Sezónní tip (podle měsíce, jen ze služeb, které servis uvádí) ---- */
-  var season = document.querySelector('[data-season]');
-  if (season) {
-    var mo = now.mo, s;
-    if (mo >= 9 || mo <= 1) s = ['Pneuservis', 'Sezóna zimních pneumatik', 'Přezutí si domluvte včas.'];
-    else if (mo <= 4) s = ['Pneuservis', 'Jaro: přezutí na letní pneumatiky', 'Domluvte si termín předem.'];
-    else s = ['Plnění klimatizace', 'Léto: klimatizace', 'Když nechladí, přijeďte na plnění.'];
-    season.dataset.preselect = s[0];
-    season.innerHTML = '<b>' + s[1] + '</b><small>' + s[2] + ' <span>Vybrat termín</span></small>';
-    season.hidden = false;
-  }
 
   /* ====================================================================
      Objednávka (demo) + živý zakázkový list
@@ -293,7 +273,7 @@
 
   document.getElementById('stk-ics').addEventListener('click', function () {
     var m = +mSel.value, yy = +ySel.value;
-    var r = new Date(yy, m - 1, 1); // připomínka měsíc předem
+    var r = new Date(yy, m - 1, 1); // připomínka na začátek měsíce před koncem platnosti
     if (r < now.date) r = new Date(now.date.getTime() + 864e5);
     var nx = new Date(r.getTime() + 864e5);
     var f = function (x) { return x.getFullYear() + pad(x.getMonth() + 1) + pad(x.getDate()); };
@@ -307,18 +287,6 @@
   /* ====================================================================
      „Co s autem máte?“ + předvýběr služby
      ==================================================================== */
-  var symOut = document.getElementById('symptom-out');
-  var CARD_NAMES = { servis: 'Autoservis a pneuservis', diag: 'Diagnostika a STK', klima: 'Klimatizace' };
-  document.querySelectorAll('.symptom').forEach(function (b) {
-    b.addEventListener('click', function () {
-      document.querySelectorAll('.symptom').forEach(function (x) { x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); });
-      document.querySelectorAll('.service').forEach(function (c) { c.classList.toggle('is-hit', c.id === 'card-' + b.dataset.card); });
-      preselect(b.dataset.service);
-      symOut.innerHTML = 'Patří to do: <strong>' + CARD_NAMES[b.dataset.card] + '</strong> → ' + b.dataset.service + '. <a href="#objednat">Vybrat termín</a>';
-      symOut.hidden = false;
-    });
-  });
-
   function preselect(val) {
     var r = form.querySelector('input[name="sluzba"][value="' + val + '"]');
     if (r) { r.checked = true; document.getElementById('err-sluzba').hidden = true; update(); }
