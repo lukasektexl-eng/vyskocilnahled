@@ -314,7 +314,7 @@ section { padding: 72px 0; }
 
 /* Živý zakázkový list */
 .ticket-col { display: none; }
-.ticket-col.is-done { display: block; }
+.ticket-col.is-done { display: block; max-width: 560px; }
 .ticket {
   position: relative;
   background: var(--ticket);
