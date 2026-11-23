@@ -338,7 +338,7 @@ section { padding: 72px 0; }
 .ticket-rows dd { margin: 0; font-weight: 700; font-family: "Courier New", ui-monospace, monospace; font-size: 1.1rem; overflow-wrap: anywhere; }
 .ticket-rows dd.is-new { animation: ink .7s ease; }
 @keyframes ink { from { background: #d6e1ee; } to { background: transparent; } }
-.mini-plate:not(:empty) { display: inline-block; border: 2px solid var(--graphite); border-left: 12px solid #1d4f9c; border-radius: 3px; padding: 0 8px; background: #fff; font: 800 1.1rem/1.5 var(--head); font-stretch: 75%; letter-spacing: .08em; }
+.mini-plate:not(:empty) { display: inline-block; border: 2px solid var(--graphite); border-radius: 3px; padding: 0 8px 0 20px; background: linear-gradient(90deg, #1d4f9c 0 12px, #fff 12px); font: 800 1.1rem/1.5 var(--head); font-stretch: 75%; letter-spacing: .08em; }
 .ticket-price { margin-top: 14px; }
 .stamp {
   position: absolute; right: 18px; bottom: 20px;
