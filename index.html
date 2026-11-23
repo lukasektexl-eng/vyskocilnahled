@@ -7,10 +7,10 @@
   <title>Autoservis Pavel Vyskočil – Mnichovice (ukázkový návrh)</title>
   <meta name="description" content="Ukázkový návrh webu pro Autoservis Pavel Vyskočil, Potoční 767, Mnichovice. Není oficiální web firmy.">
   <meta name="theme-color" content="#222831">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%23222831'/%3E%3Ctext x='16' y='22' font-family='Arial' font-weight='700' font-size='16' text-anchor='middle' fill='%23f28c28'%3EPV%3C/text%3E%3C/svg%3E">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23222831'/%3E%3Ctext x='16' y='22' font-family='Arial' font-weight='700' font-size='15' text-anchor='middle' fill='%23f28c28'%3EPV%3C/text%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,600..900&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..100,500..900&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -23,86 +23,159 @@
   <header class="site-header">
     <div class="wrap header-inner">
       <a class="brand" href="#top" aria-label="Autoservis Pavel Vyskočil – na začátek stránky">
-        <span class="brand-kicker">Autoservis</span>
-        <span class="brand-name">Pavel Vyskočil</span>
+        <span class="brand-mark" aria-hidden="true">PV</span>
+        <span class="brand-text">
+          <span class="brand-kicker">Autoservis</span>
+          <span class="brand-name">Pavel Vyskočil</span>
+        </span>
       </a>
-      <nav class="header-actions" aria-label="Rychlé akce">
-        <a class="btn btn-ghost" href="tel:+420603149151">
+      <nav class="header-nav" aria-label="Hlavní">
+        <a href="#sluzby">Služby</a>
+        <a href="#stk">STK</a>
+        <a href="#kontakt">Kontakt</a>
+      </nav>
+      <div class="header-actions">
+        <a class="btn btn-ghost btn-call" href="tel:+420603149151">
           <svg class="ico" aria-hidden="true" viewBox="0 0 24 24"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg>
-          <span>Zavolat</span>
+          <span class="btn-call-label">Zavolat</span>
         </a>
         <a class="btn btn-primary" href="#objednat">Objednat termín</a>
-      </nav>
+      </div>
     </div>
   </header>
 
   <main id="main">
-    <!-- HERO -->
+    <!-- HERO: děrovaná dílenská deska + cedule s telefonem -->
     <section class="hero" id="top" aria-labelledby="hero-title">
       <div class="wrap hero-grid">
         <div class="hero-copy">
-          <p class="hero-place">Potoční 767 · Mnichovice</p>
+          <p class="hero-place"><span class="pin" aria-hidden="true"></span>Potoční 767 · 251&nbsp;64 Mnichovice</p>
           <h1 id="hero-title">Poctivý servis v&nbsp;Mnichovicích</h1>
-          <p class="hero-lead">Autoservis a&nbsp;pneuservis. Diagnostika motorů, karosářské práce, plnění klimatizací a&nbsp;příprava na&nbsp;STK.</p>
-          <div class="hero-cta">
-            <a class="btn btn-primary btn-lg" href="tel:+420603149151">Zavolat 603&nbsp;149&nbsp;151</a>
-            <a class="text-link" href="#objednat">nebo si vyberte termín online →</a>
-          </div>
+          <p class="hero-lead">Autoservis a&nbsp;pneuservis, diagnostika motorů, karosářské práce, plnění klimatizací a&nbsp;příprava na&nbsp;STK. Cenu sdělíme předem.</p>
+
+          <a class="sign" href="tel:+420603149151">
+            <span class="sign-label">Zavolejte</span>
+            <span class="sign-number">603&nbsp;149&nbsp;151</span>
+          </a>
+          <p class="hero-alt"><a href="#objednat">nebo si vyberte termín online</a></p>
         </div>
 
-        <aside class="board" aria-label="Hodnocení a otevírací doba">
-          <div class="board-rating">
-            <span class="stars" aria-hidden="true">
-              <svg viewBox="0 0 120 22"><g fill="currentColor"><path id="st" d="M11 1.5l2.9 6 6.6.8-4.9 4.5 1.3 6.5L11 16.1l-5.9 3.2 1.3-6.5L1.5 8.3l6.6-.8z"/><use href="#st" x="24"/><use href="#st" x="48"/><use href="#st" x="72"/><use href="#st" x="96"/></g></svg>
-            </span>
-            <p><strong class="rating-num">4,9</strong> na&nbsp;Google · 41&nbsp;recenzí</p>
+        <aside class="board" aria-label="Hodnocení a dnešní otevírací doba">
+          <div class="board-row board-rating">
+            <p class="rating-num">4,9</p>
+            <div>
+              <span class="stars" aria-hidden="true">
+                <svg viewBox="0 0 120 22"><g fill="currentColor"><path id="st" d="M11 1.5l2.9 6 6.6.8-4.9 4.5 1.3 6.5L11 16.1l-5.9 3.2 1.3-6.5L1.5 8.3l6.6-.8z"/><use href="#st" x="24"/><use href="#st" x="48"/><use href="#st" x="72"/><use href="#st" x="96"/></g></svg>
+              </span>
+              <p>na&nbsp;Google · 41&nbsp;recenzí</p>
+            </div>
           </div>
-          <div class="board-hours">
-            <h2 class="board-title">Otevírací doba</h2>
+
+          <div class="board-row">
             <!-- OVĚŘIT S MAJITELEM: otevírací doba Po–Pá 8:00–16:00 převzata z Google Maps -->
+            <h2 class="board-title">Otevírací doba</h2>
             <p class="hours-main">Po–Pá <span class="nums">8:00–16:00</span></p>
             <p class="hours-sub">So a&nbsp;Ne zavřeno</p>
+            <div class="timeline" data-timeline aria-hidden="true">
+              <div class="tl-track"><div class="tl-open"></div><div class="tl-now"><span></span></div></div>
+              <div class="tl-scale"><span>6</span><span>8</span><span>10</span><span>12</span><span>14</span><span>16</span><span>18</span></div>
+            </div>
             <p class="status" data-status aria-live="polite"></p>
           </div>
+
+          <a class="board-row season" href="#objednat" data-season hidden></a>
         </aside>
       </div>
     </section>
 
-    <!-- SLUŽBY -->
+    <!-- SLUŽBY + „Co auto dělá?“ -->
     <section class="services" id="sluzby" aria-labelledby="sluzby-title">
       <div class="wrap">
-        <h2 id="sluzby-title" class="section-title">Co u&nbsp;nás uděláte</h2>
-        <p class="section-lead">Cenu vám sdělíme předem, ještě než začneme.</p>
+        <div class="services-head">
+          <h2 id="sluzby-title" class="section-title">Co s&nbsp;autem máte?</h2>
+          <p class="section-lead">Klepněte na to, co řešíte. Ukážeme, kam to patří, a&nbsp;rovnou to předvyplníme do objednávky.</p>
+        </div>
+
+        <div class="symptoms" role="group" aria-label="Co řešíte">
+          <button type="button" class="symptom" data-card="servis" data-service="Autoservis" aria-pressed="false">Něco nehraje, je čas na&nbsp;servis</button>
+          <button type="button" class="symptom" data-card="servis" data-service="Pneuservis" aria-pressed="false">Přezutí nebo pneumatiky</button>
+          <button type="button" class="symptom" data-card="servis" data-service="Karosářské práce" aria-pressed="false">Ťukanec nebo škrábanec na&nbsp;karoserii</button>
+          <button type="button" class="symptom" data-card="diag" data-service="Diagnostika motoru" aria-pressed="false">Svítí kontrolka motoru</button>
+          <button type="button" class="symptom" data-card="diag" data-service="Příprava na STK" aria-pressed="false">Blíží se STK</button>
+          <button type="button" class="symptom" data-card="klima" data-service="Plnění klimatizace" aria-pressed="false">Klimatizace nechladí</button>
+        </div>
+        <p class="symptom-out" id="symptom-out" aria-live="polite" hidden></p>
 
         <div class="service-list">
-          <article class="service">
+          <article class="service" id="card-servis">
             <svg class="service-ico" aria-hidden="true" viewBox="0 0 48 48"><path d="M30.5 6.5a9.5 9.5 0 0 0-9.1 12.2L6.9 33.2a3.9 3.9 0 0 0 5.5 5.5l14.5-14.5A9.5 9.5 0 0 0 39 15.4l-5.3 5.3-5.1-1.3-1.3-5.1 5.3-5.3a9.6 9.6 0 0 0-2.1-2.5z" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linejoin="round"/><circle cx="10" cy="35.6" r="1.6" fill="currentColor"/></svg>
+            <p class="service-no">01</p>
             <h3>Autoservis a&nbsp;pneuservis</h3>
             <ul>
-              <li>Provoz autoservisu a&nbsp;pneuservisu</li>
-              <li>Karosářské práce</li>
+              <li><a href="#objednat" data-preselect="Autoservis">Provoz autoservisu</a></li>
+              <li><a href="#objednat" data-preselect="Pneuservis">Pneuservis</a></li>
+              <li><a href="#objednat" data-preselect="Karosářské práce">Karosářské práce</a></li>
             </ul>
-            <a class="service-book" href="#objednat" data-preselect="Autoservis">Objednat servis</a>
           </article>
 
-          <article class="service">
-            <svg class="service-ico" aria-hidden="true" viewBox="0 0 48 48"><rect x="5" y="9" width="38" height="26" rx="2" fill="none" stroke="currentColor" stroke-width="2.6"/><path d="M10 26h6l3-8 4 13 4-17 3 12h8" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round"/><path d="M18 41h12M24 35v6" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/></svg>
+          <article class="service" id="card-diag">
+            <svg class="service-ico" aria-hidden="true" viewBox="0 0 48 48"><rect x="5" y="9" width="38" height="26" fill="none" stroke="currentColor" stroke-width="2.6"/><path d="M10 26h6l3-8 4 13 4-17 3 12h8" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round"/><path d="M18 41h12M24 35v6" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/></svg>
+            <p class="service-no">02</p>
             <h3>Diagnostika a&nbsp;STK</h3>
             <ul>
-              <li>Diagnostika motorů</li>
-              <li>Příprava na&nbsp;STK</li>
+              <li><a href="#objednat" data-preselect="Diagnostika motoru">Diagnostika motorů</a></li>
+              <li><a href="#objednat" data-preselect="Příprava na STK">Příprava na&nbsp;STK</a></li>
             </ul>
-            <a class="service-book" href="#objednat" data-preselect="Diagnostika motoru">Objednat diagnostiku</a>
           </article>
 
-          <article class="service">
-            <svg class="service-ico" aria-hidden="true" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M24 4v40M6.7 14l34.6 20M6.7 34l34.6-20"/><path d="M19 7l5 4 5-4M19 41l5-4 5 4M5.6 20.3l6.2-1 -2.3-5.9M42.4 27.7l-6.2 1 2.3 5.9M9.5 33.6l2.3-5.9-6.2-1M38.5 14.4l-2.3 5.9 6.2 1"/></g></svg>
+          <article class="service" id="card-klima">
+            <svg class="service-ico" aria-hidden="true" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M24 4v40M6.7 14l34.6 20M6.7 34l34.6-20"/><path d="M19 7l5 4 5-4M19 41l5-4 5 4M5.6 20.3l6.2-1-2.3-5.9M42.4 27.7l-6.2 1 2.3 5.9M9.5 33.6l2.3-5.9-6.2-1M38.5 14.4l-2.3 5.9 6.2 1"/></g></svg>
+            <p class="service-no">03</p>
             <h3>Klimatizace</h3>
             <ul>
-              <li>Plnění klimatizací</li>
+              <li><a href="#objednat" data-preselect="Plnění klimatizace">Plnění klimatizací</a></li>
             </ul>
-            <a class="service-book" href="#objednat" data-preselect="Plnění klimatizace">Objednat plnění</a>
           </article>
+        </div>
+        <p class="price-note"><strong>Ceny?</strong> Pevný ceník tu nenajdete – cenu vám sdělíme předem, ještě než začneme.</p>
+      </div>
+    </section>
+
+    <!-- STK HLÍDAČ: kulatá známka -->
+    <section class="stk" id="stk" aria-labelledby="stk-title">
+      <div class="wrap stk-grid">
+        <div class="stk-copy">
+          <h2 id="stk-title" class="section-title">Kdy vám končí STK?</h2>
+          <p class="section-lead">Nastavte měsíc a&nbsp;rok ze známky na&nbsp;SPZ. Spočítáme, kolik zbývá, a&nbsp;můžete si uložit připomínku do kalendáře.</p>
+
+          <div class="stk-form">
+            <div class="field">
+              <label for="stk-month">Měsíc</label>
+              <select id="stk-month"></select>
+            </div>
+            <div class="field">
+              <label for="stk-year">Rok</label>
+              <select id="stk-year"></select>
+            </div>
+          </div>
+
+          <p class="stk-result" id="stk-result" aria-live="polite"></p>
+          <div class="stk-actions">
+            <a class="btn btn-primary" href="#objednat" data-preselect="Příprava na STK">Objednat přípravu na&nbsp;STK</a>
+            <button type="button" class="btn btn-ghost" id="stk-ics">Připomenout v&nbsp;kalendáři</button>
+          </div>
+          <p class="small-note">Připomínka se stáhne jako soubor do vašeho kalendáře, nikam se neodesílá.</p>
+        </div>
+
+        <div class="stk-dial-wrap">
+          <svg class="stk-dial" id="stk-dial" viewBox="0 0 300 300" role="img" aria-labelledby="stk-dial-title">
+            <title id="stk-dial-title">Kulatá známka s&nbsp;vybraným měsícem a&nbsp;rokem</title>
+            <circle cx="150" cy="150" r="146" class="dial-rim"/>
+            <g id="dial-segs"></g>
+            <circle cx="150" cy="150" r="70" class="dial-center"/>
+            <text x="150" y="146" class="dial-year" id="dial-year" text-anchor="middle">2026</text>
+            <text x="150" y="178" class="dial-sub" text-anchor="middle">STK</text>
+          </svg>
         </div>
       </div>
     </section>
@@ -116,7 +189,7 @@
             <span class="step-no" aria-hidden="true">1</span>
             <h3>Zavoláte</h3>
             <!-- OVĚŘIT S MAJITELEM: hodiny 8–16 -->
-            <p>Na&nbsp;<a href="tel:+420603149151">603&nbsp;149&nbsp;151</a>, v&nbsp;pracovní dny od&nbsp;8 do&nbsp;16&nbsp;hodin. Řeknete, co auto dělá.</p>
+            <p>Na&nbsp;<a href="tel:+420603149151">603&nbsp;149&nbsp;151</a>, v&nbsp;pracovní dny 8–16&nbsp;h. Řeknete, co auto dělá.</p>
           </li>
           <li>
             <span class="step-no" aria-hidden="true">2</span>
@@ -126,29 +199,25 @@
           <li>
             <span class="step-no" aria-hidden="true">3</span>
             <h3>Cenu sdělíme předem</h3>
-            <p>Než se do&nbsp;opravy pustíme, víte, kolik zaplatíte.</p>
+            <p>Než se do&nbsp;práce pustíme, víte, kolik zaplatíte.</p>
           </li>
         </ol>
       </div>
     </section>
 
-    <!-- OBJEDNÁNÍ (DEMO) -->
+    <!-- OBJEDNÁNÍ (DEMO) + živý zakázkový list -->
     <section class="booking" id="objednat" aria-labelledby="objednat-title">
       <div class="wrap">
         <h2 id="objednat-title" class="section-title">Objednat termín online</h2>
-        <p class="section-lead">Vyberte službu, den a&nbsp;čas. Takhle by mohla vypadat poptávka termínu přes web.</p>
+        <p class="section-lead">Vyberte službu, den a&nbsp;čas. Zakázkový list se vyplňuje s&nbsp;vámi.</p>
+        <p class="demo-badge">Ukázka – nic se neodesílá</p>
 
-        <div class="sheet">
-          <div class="sheet-head">
-            <span class="sheet-title">Zakázkový list</span>
-            <span class="demo-badge">Ukázka – nic se neodesílá</span>
-          </div>
-
-          <form id="booking-form" novalidate>
+        <div class="booking-grid">
+          <form id="booking-form" class="form-panel" novalidate>
             <fieldset class="field-block">
               <legend><span class="num">1</span> Služba</legend>
               <div class="chips" id="svc-group">
-                <label class="chip"><input type="radio" name="sluzba" value="Autoservis" required><span>Autoservis</span></label>
+                <label class="chip"><input type="radio" name="sluzba" value="Autoservis"><span>Autoservis</span></label>
                 <label class="chip"><input type="radio" name="sluzba" value="Pneuservis"><span>Pneuservis</span></label>
                 <label class="chip"><input type="radio" name="sluzba" value="Diagnostika motoru"><span>Diagnostika motoru</span></label>
                 <label class="chip"><input type="radio" name="sluzba" value="Karosářské práce"><span>Karosářské práce</span></label>
@@ -200,11 +269,34 @@
             </div>
           </form>
 
-          <div class="done" id="done" hidden tabindex="-1">
-            <p class="done-title">Ukázka: nic se neodesílá.</p>
-            <dl class="done-list" id="done-list"></dl>
-            <p>Ve skutečném webu by poptávka došla do autoservisu. Teď můžete rovnou zavolat: <a href="tel:+420603149151">603&nbsp;149&nbsp;151</a>.</p>
-            <button type="button" class="btn btn-ghost" id="restart">Vyplnit znovu</button>
+          <!-- Živý zakázkový list = zároveň potvrzení -->
+          <div class="ticket-col">
+            <div class="ticket" id="ticket" tabindex="-1" aria-labelledby="ticket-title">
+              <div class="ticket-head">
+                <p class="ticket-brand"><span>Autoservis</span> Pavel Vyskočil</p>
+                <p class="ticket-addr">Potoční 767, Mnichovice · 603&nbsp;149&nbsp;151</p>
+              </div>
+              <h3 class="ticket-title" id="ticket-title">Zakázkový list</h3>
+              <dl class="ticket-rows">
+                <div><dt>Služba</dt><dd data-t="sluzba"></dd></div>
+                <div><dt>Den</dt><dd data-t="den"></dd></div>
+                <div><dt>Čas</dt><dd data-t="cas"></dd></div>
+                <div><dt>Jméno</dt><dd data-t="jmeno"></dd></div>
+                <div><dt>Telefon</dt><dd data-t="telefon"></dd></div>
+                <div class="ticket-spz"><dt>SPZ</dt><dd><span class="mini-plate" data-t="spz"></span></dd></div>
+              </dl>
+              <p class="ticket-price">Cena: <strong>sdělíme předem</strong></p>
+              <p class="stamp" aria-hidden="true">Ukázka</p>
+
+              <div class="done" id="done" hidden>
+                <p class="done-title">Ukázka: nic se neodesílá.</p>
+                <p>Ve skutečném webu by poptávka došla do autoservisu. Teď můžete rovnou zavolat: <a href="tel:+420603149151">603&nbsp;149&nbsp;151</a>.</p>
+                <div class="done-actions">
+                  <button type="button" class="btn btn-ghost" id="book-ics">Přidat do kalendáře</button>
+                  <button type="button" class="btn btn-ghost" id="restart">Vyplnit znovu</button>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -216,13 +308,12 @@
         <div>
           <h2 id="kontakt-title" class="section-title">Kontakt</h2>
           <address class="contact-addr">
-            <strong>Autoservis Pavel Vyskočil</strong><br>
-            Potoční 767<br>
-            251&nbsp;64 Mnichovice
+            <span class="addr-street">Potoční 767</span>
+            <span class="addr-town">251&nbsp;64 Mnichovice</span>
           </address>
           <p class="contact-phone"><a href="tel:+420603149151">603&nbsp;149&nbsp;151</a></p>
           <a class="btn btn-ghost" href="https://mapy.com/fnc/v1/search?query=Poto%C4%8Dn%C3%AD%20767%2C%20251%2064%20Mnichovice" target="_blank" rel="noopener">
-            Otevřít v&nbsp;Mapy.com<span class="sr-only"> (nové okno)</span> ↗
+            Navigovat přes Mapy.com<span class="sr-only"> (nové okno)</span> ↗
           </a>
         </div>
         <div>
@@ -246,7 +337,8 @@
   </main>
 
   <footer class="site-footer">
-    <div class="wrap">
+    <div class="wrap footer-inner">
+      <p class="footer-brand">Autoservis Pavel Vyskočil · Potoční 767, Mnichovice</p>
       <p>Ukázkový návrh vytvořil Lukáš Texl, není oficiální web firmy.</p>
     </div>
   </footer>
